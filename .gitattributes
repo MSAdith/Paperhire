@@ -1,0 +1,8 @@
+# Store text with LF line endings in the repo (Vercel builds on Linux).
+* text=auto eol=lf
+
+# Binary sample files
+*.pdf binary
+*.docx binary
+*.png binary
+*.woff2 binary

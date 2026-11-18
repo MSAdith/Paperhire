@@ -1,0 +1,284 @@
+/* Reach Out, Tracker and AI feedback styles. Same tokens and rules
+   as index.css: flat fills, ink borders, 4-8px corners. */
+
+/* ---------- Header extras ---------- */
+.header-tracker { display: none; }
+
+@media (min-width: 700px) {
+  .header-tracker { display: inline; }
+}
+
+
+/* ---------- Reach Out ---------- */
+.type-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s1);
+}
+
+.type-option {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 64px;
+  padding: 10px 12px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  text-align: left;
+  cursor: pointer;
+}
+
+.type-option strong { font-size: var(--fs-sm); }
+.type-option span { font-size: var(--fs-xs); line-height: 16px; color: var(--grey); }
+.type-option:hover { border-color: var(--grey); }
+
+.type-option[aria-checked="true"] {
+  border-color: var(--ink);
+  background: var(--sun);
+}
+
+.type-option[aria-checked="true"] span { color: var(--ink); }
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 var(--s2);
+}
+
+@media (min-width: 560px) {
+  .two-col { grid-template-columns: 1fr 1fr; }
+}
+
+.two-col .field + .field { margin-top: 0; }
+.two-col + .field { margin-top: var(--s3); }
+.field + .two-col { margin-top: var(--s3); }
+
+.label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s2);
+}
+
+.char-count {
+  padding: 1px 8px;
+  border-radius: 3px;
+  background: var(--lime);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.char-count.char-over { background: var(--tomato); }
+
+/* ---------- AI feedback ---------- */
+.feedback {
+  margin-top: var(--s3);
+  padding-top: var(--s2);
+  border-top: 1px solid var(--line);
+  font-size: var(--fs-sm);
+}
+
+.feedback-done { color: var(--grey); }
+
+.feedback-row {
+  display: flex;
+  align-items: center;
+  gap: var(--s1);
+}
+
+.feedback-q { margin-right: var(--s1); color: var(--grey); }
+
+.thumb {
+  width: 40px;
+  height: 36px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.thumb:hover:not(:disabled) { border-color: var(--ink); }
+.thumb-active { border-color: var(--ink); background: var(--tomato); }
+
+.feedback-form { margin-top: var(--s2); }
+.feedback-label { font-weight: 600; margin-bottom: var(--s1); }
+
+.feedback-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1);
+}
+
+.chip-toggle { cursor: pointer; }
+.chip-on { background: var(--sun); }
+
+.feedback-send {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1);
+  margin-top: var(--s2);
+}
+
+.feedback-send .input { flex: 1 1 220px; width: auto; }
+.feedback-error { margin-top: var(--s1); color: var(--ink); text-decoration: underline wavy var(--tomato); }
+
+/* ---------- Tracker ---------- */
+.tracker-summary {
+  margin-top: var(--s4);
+  padding: 10px var(--s2);
+  border: var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s2);
+  margin-top: var(--s3);
+}
+
+@media (min-width: 900px) {
+  .board {
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+    overflow-x: auto;
+    align-items: start;
+  }
+}
+
+.column {
+  min-width: 0;
+  padding: var(--s1);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  border: 1.5px solid var(--line);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.column-over { border-color: var(--ink); background: var(--paper); }
+
+.column-head {
+  display: flex;
+  align-items: center;
+  gap: var(--s1);
+  padding: 6px 8px 10px;
+  font-size: var(--fs-md);
+  letter-spacing: -0.01em;
+}
+
+.column-head::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  border: 1.5px solid var(--ink);
+}
+
+.column-saved .column-head::before { background: var(--white); }
+.column-applied .column-head::before { background: var(--cobalt); }
+.column-interview .column-head::before { background: var(--sun); }
+.column-offer .column-head::before { background: var(--lime); }
+.column-rejected .column-head::before { background: var(--tomato); }
+
+.column-cards { display: grid; gap: var(--s1); min-height: 48px; }
+
+.column-empty {
+  padding: var(--s2) 8px;
+  border: 1.5px dashed var(--line);
+  border-radius: var(--radius);
+  font-size: var(--fs-xs);
+  color: var(--grey);
+  text-align: center;
+}
+
+.tcard {
+  padding: 12px;
+  border: var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  cursor: grab;
+}
+
+.tcard:active { cursor: grabbing; }
+.tcard-dragging { opacity: 0.45; }
+
+.tcard-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.tcard-company { margin-top: 2px; font-size: var(--fs-sm); font-weight: 600; }
+.tcard-meta { margin-top: 2px; font-size: var(--fs-xs); line-height: 16px; color: var(--grey); }
+
+.tcard-follow {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 0 6px;
+  border-radius: 3px;
+  background: var(--paper);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.tcard-due { background: var(--sun); }
+
+.tcard-note {
+  margin-top: 6px;
+  font-size: var(--fs-sm);
+  line-height: 18px;
+  overflow-wrap: anywhere;
+}
+
+.tcard-edit { margin-top: var(--s1); }
+.tcard-edit .input-sm { width: 100%; }
+
+.tcard-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s1);
+  margin-top: var(--s1);
+}
+
+.tcard-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.tcard-status {
+  min-height: 32px;
+  padding: 2px 6px;
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  background: var(--white);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.tcard-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--fs-xs);
+}
+
+.tcard-links a { font-weight: 600; }
+.link-btn.small { font-size: var(--fs-xs); }
+
+.data-table td.wrap { white-space: normal; min-width: 240px; }

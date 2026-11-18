@@ -1,0 +1,66 @@
+/* Paperhire design tokens: "Paper & Ink with colour blocks".
+   Only these colours are used. Contrast (WCAG AA, checked):
+   - --ink on --paper / --white / --lime / --sun / --tomato: 5.9-18.7:1.
+   - --grey on --paper 4.85:1, on --white 5.33:1. Never on lime/sun blocks.
+   - --cobalt blocks carry --white text (5.17:1); ink on cobalt is too low.
+   - --tomato is a block colour only; it is never used as text on paper (2.9:1),
+     except in the "paperhire" wordmark (logos are exempt from text contrast).
+   - --cobalt works as link text on paper/white (4.7-5.2:1). */
+
+:root {
+  --paper: #F6F4EF;
+  --white: #FFFFFF;
+  --ink: #121212;
+  --grey: #6B6B6B;
+  --line: #E2DED5;
+
+  --cobalt: #2F5BFF;
+  --tomato: #FF5533;
+  --lime: #C8F169;
+  --sun: #FFD23F;
+
+  /* Type: Bricolage Grotesque for display, Instrument Sans for text,
+     Instrument Serif italic for the odd emphasis word. Self-hosted via @fontsource. */
+  --font-display: "Bricolage Grotesque Variable", "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Instrument Sans Variable", "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Consolas, monospace;
+
+  --fs-xs: 12px;
+  --fs-sm: 14px;
+  --fs-md: 16px;
+  --fs-lg: 20px;
+  --fs-xl: 28px;
+  --fs-2xl: 40px;
+  --fs-3xl: 56px;
+  --fs-hero: clamp(48px, 7.4vw, 96px);
+
+  /* 8px spacing grid */
+  --s-half: 4px;
+  --s1: 8px;
+  --s2: 16px;
+  --s3: 24px;
+  --s4: 32px;
+  --s5: 40px;
+  --s6: 48px;
+  --s8: 64px;
+  --s10: 80px;
+  --s12: 96px;
+
+  --radius: 6px;
+  --radius-lg: 8px;
+  --border: 1.5px solid var(--ink);
+  --hard-shadow: 4px 4px 0 var(--ink);
+
+  --container: 1280px;
+  --gutter: 20px;
+  --header-h: 64px;
+}
+
+@media (min-width: 768px) {
+  :root { --gutter: 40px; }
+}
+
+@media print {
+  :root { --paper: #FFFFFF; }
+}
